@@ -1,0 +1,36 @@
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "8089:8089"
+    env_file:
+      - ./Backend/.env
+    environment:
+      - PORT=8089
+      - CLIENT_URL=https://dashboard.lovosis.in/
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=https://dashboard.lovosis.in/api
+    ports:
+      - "8090:8090"
+    environment:
+      - PORT=8090
+      - NEXT_PUBLIC_API_URL=https://dashboard.lovosis.in/api
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
