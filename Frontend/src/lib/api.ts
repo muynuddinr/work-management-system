@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://dashboard.lovosis.in/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+if (!API_URL) {
+  throw new Error('NEXT_PUBLIC_API_URL is not defined. Please set it in your .env file.');
+}
 
 export const api = axios.create({
   baseURL: API_URL,

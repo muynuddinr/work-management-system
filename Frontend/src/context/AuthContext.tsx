@@ -36,7 +36,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = async (email: string, password: string) => {
     try {
       console.log('🔐 AuthContext.login called with:', { email, password: password ? '***' : 'EMPTY' });
-      console.log('📡 Making API request to:', `${process.env.NEXT_PUBLIC_API_URL || 'https://dashboard.lovosis.in/api'}/auth/login`);
+      console.log('📡 Making API request to:', `${process.env.NEXT_PUBLIC_API_URL}/auth/login`);
       
       const response = await authAPI.login(email, password);
       console.log('📨 API Response received:', response);

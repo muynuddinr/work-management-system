@@ -27,7 +27,7 @@ connectDB();
 
 // Middleware
 const allowedOrigins = [
-  process.env.CLIENT_URL || 'https://dashboard.lovosis.in',
+  process.env.CLIENT_URL || 'http://localhost:3000',
   'https://dashboard.lovosis.in',
   'http://localhost:3000',
   'http://localhost:8090',

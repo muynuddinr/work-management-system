@@ -8,7 +8,10 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Building2, Phone, Lock, ArrowLeft, MessageCircle, ShieldCheck } from 'lucide-react';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://dashboard.lovosis.in/api';
+if (!process.env.NEXT_PUBLIC_API_URL) {
+  throw new Error('Missing NEXT_PUBLIC_API_URL in environment. Please set it in your .env');
+}
+const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 
 export default function ForgotPasswordPage() {
   const router = useRouter();

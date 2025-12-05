@@ -19,12 +19,12 @@ services:
       context: ./Frontend
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_API_URL=https://dashboard.lovosis.in/api
+        - NEXT_PUBLIC_API_URL=http://backend:8089/api
     ports:
       - "8090:8090"
     environment:
       - PORT=8090
-      - NEXT_PUBLIC_API_URL=https://dashboard.lovosis.in/api
+      - NEXT_PUBLIC_API_URL=http://backend:8089/api
     depends_on:
       - backend
     restart: unless-stopped

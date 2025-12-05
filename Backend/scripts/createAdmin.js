@@ -49,6 +49,7 @@ const createAdmin = async () => {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('\n🚀 You can now login at:');
     console.log('   https://dashboard.lovosis.in/login');
+    console.log('   or http://localhost:3000/login');
     console.log('\n   Email: admin@lovosis.in');
     console.log('   Password: lovosis123');
 
